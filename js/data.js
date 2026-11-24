@@ -16,7 +16,7 @@ window.CREATURES = [
   {
     id: 'anomalocaris', ko: '아노말로카리스', en: 'Anomalocaris canadensis',
     era: 'paleozoic', period: '캄브리아기', diet: '육식', size: '몸길이 1m', region: '북아메리카',
-    tier: 3, stats: [900, 104, 82, 94],
+    tier: 3, stats: [1008, 116, 92, 105],
     skill: { n: '이중 협공', c: 65, t: 'multi', v: 1.3, d: '두 쌍의 협각을 연달아 휘둘러 두 번 공격합니다.' },
     model: { a: 'arthropod', f: 'anomalo', c: ['#c8693f', '#7c3a22', '#f0a976', '#2a1a12'], s: 1.15 },
     desc: '캄브리아기 바다의 최상위 포식자로 몸길이가 1m에 달했습니다. 32개의 겹눈과 방사형 입, 두 개의 큰 협각으로 단단한 삼엽충을 집어 삼켰습니다.',
@@ -24,7 +24,7 @@ window.CREATURES = [
   {
     id: 'trilobite', ko: '삼엽충', en: 'Trilobita',
     era: 'paleozoic', period: '캄브리아기', diet: '잡식', size: '몸길이 1cm ~ 70cm', region: '전 세계',
-    tier: 1, stats: [660, 64, 78, 74],
+    tier: 1, stats: [1030, 100, 122, 115],
     skill: { n: '몸 말기', c: 55, t: 'guard', v: 0.7, d: '갑각을 접어 2턴 동안 받는 피해를 크게 줄입니다.' },
     model: { a: 'arthropod', f: 'trilobite', c: ['#7f8f63', '#48563a', '#b9c79a', '#2b3324'], s: 0.9 },
     desc: '약 2억 7천만 년 동안 바다를 지배한 갑각류로, 2만 종 이상이 알려져 있습니다. 겹눈과 유연한 갑각 덕분에 페름기 대멸종 전까지 살아남았습니다.',
@@ -32,7 +32,7 @@ window.CREATURES = [
   {
     id: 'opabinia', ko: '오파비니아', en: 'Opabinia regalis',
     era: 'paleozoic', period: '캄브리아기', diet: '육식', size: '몸길이 4~7cm', region: '북아메리카',
-    tier: 2, stats: [800, 84, 74, 100],
+    tier: 2, stats: [984, 103, 91, 123],
     skill: { n: '다섯 눈 조준', c: 60, t: 'pierce', v: 1.5, d: '다섯 개의 눈으로 약점을 포착해 방어를 60% 무시합니다.' },
     model: { a: 'arthropod', f: 'opabinia', c: ['#b0607a', '#6d3348', '#e6a1b3', '#2c1620'], s: 0.95 },
     desc: '머리에 다섯 개의 눈과 몸길이의 네 배에 달하는 유연한 코를 가진 기묘한 생물입니다. 코 끝의 발톱으로 먹이를 낚아채 입으로 옮겼습니다.',
@@ -40,7 +40,7 @@ window.CREATURES = [
   {
     id: 'hallucigenia', ko: '할루키게니아', en: 'Hallucigenia sparsa',
     era: 'paleozoic', period: '캄브리아기', diet: '잡식', size: '몸길이 약 3cm', region: '북아메리카·중국',
-    tier: 1, stats: [700, 72, 66, 86],
+    tier: 1, stats: [1003, 103, 95, 123],
     skill: { n: '가시 숲', c: 55, t: 'bleed', v: 1.0, d: '등 가시로 찔러 3턴 동안 출혈 피해를 입힙니다.' },
     model: { a: 'arthropod', f: 'hallucigenia', c: ['#c2a24a', '#7d642a', '#efd892', '#3a2f14'], s: 0.92 },
     desc: '처음 복원되었을 때 거꾸로 세워진 채 전시될 만큼 해석이 어려웠던 생물입니다. 등에는 두 줄의 가시, 배에는 다리 대신 촉수가 나 있습니다.',
@@ -48,7 +48,7 @@ window.CREATURES = [
   {
     id: 'pikaia', ko: '피카이아', en: 'Pikaia gracilens',
     era: 'paleozoic', period: '캄브리아기', diet: '여과 섭식', size: '몸길이 약 4cm', region: '북아메리카',
-    tier: 1, stats: [640, 62, 62, 96],
+    tier: 1, stats: [1500, 149, 149, 150],
     skill: { n: '척삭의 각성', c: 50, t: 'energy', v: 30, d: '상대의 에너지를 흡수해 내 에너지로 바꿉니다.' },
     model: { a: 'serpent', f: 'pikaia', c: ['#a8b6c4', '#5a6874', '#e2ebf2', '#243039'], s: 0.9 },
     desc: '캄브리아기 지층에서 발견된 최초의 척삭동물 가운데 하나로, 모든 척추동물의 먼 조상 격입니다. 몸을 물결처럼 흔들어 헤엄쳤습니다.',
@@ -56,7 +56,7 @@ window.CREATURES = [
   {
     id: 'eurypterus', ko: '에우리프테루스', en: 'Eurypterus remipes',
     era: 'paleozoic', period: '실루리아기', diet: '육식', size: '몸길이 20cm ~ 1.3m', region: '북아메리카·유럽',
-    tier: 2, stats: [840, 92, 84, 82],
+    tier: 2, stats: [972, 106, 97, 95],
     skill: { n: '집게 조이기', c: 65, t: 'stun', v: 1.15, d: '집게로 상대를 붙잡아 다음 턴을 봉쇄합니다.' },
     model: { a: 'arthropod', f: 'eurypterus', c: ['#6a8f7a', '#3c5a4a', '#a9cdb8', '#1d2f26'], s: 1.05 },
     desc: '고생대 바다와 민물을 지배한 바다전갈로, 같은 이름의 화석이 뉴욕주 주화에도 새겨져 있습니다. 긴 집게발과 침으로 먹이를 제압했습니다.',
@@ -64,7 +64,7 @@ window.CREATURES = [
   {
     id: 'dunkleosteus', ko: '덩클레오스테우스', en: 'Dunkleosteus terrelli',
     era: 'paleozoic', period: '데본기', diet: '육식', size: '몸길이 3.4~4.1m', region: '북아메리카·유럽',
-    tier: 4, stats: [1180, 134, 120, 62],
+    tier: 4, stats: [1105, 125, 112, 58],
     skill: { n: '판갑 절단', c: 75, t: 'burst', v: 2.0, d: '판갑을 밀어붙여 2배의 강력한 한 방을 날립니다.' },
     model: { a: 'shark', f: 'dunkle', c: ['#6f7f8c', '#3b4a54', '#b6c3cc', '#1d262c'], s: 1.0 },
     desc: '머리와 가슴을 판갑으로 무장한 데본기 최강의 어류입니다. 흉기로 쓰이는 날카로운 턱 대신 뼛조각이 날처럼 맞물려 먹이를 절단했습니다.',
@@ -72,7 +72,7 @@ window.CREATURES = [
   {
     id: 'acanthostega', ko: '아칸토스테가', en: 'Acanthostega gunnari',
     era: 'paleozoic', period: '데본기', diet: '육식', size: '몸길이 60cm', region: '그린란드',
-    tier: 2, stats: [820, 88, 82, 78],
+    tier: 2, stats: [1069, 115, 107, 102],
     skill: { n: '최초의 사지', c: 60, t: 'burst', v: 1.55, d: '물 밖으로 밀어붙이며 사지로 강하게 후려칩니다.' },
     model: { a: 'quadruped', f: 'amphibian', c: ['#5e7c5a', '#33482f', '#a2bd94', '#1c2a19'], s: 0.95 },
     desc: '물속에서 살았지만 네 개의 다리와 발가락을 갖춘 최초의 사지동물 중 하나입니다. 다리는 물속에서 노처럼 쓰였고, 아가미로 숨을 쉬었습니다.',
@@ -80,7 +80,7 @@ window.CREATURES = [
   {
     id: 'meganeura', ko: '메가네우라', en: 'Meganeura monyi',
     era: 'paleozoic', period: '석탄기', diet: '육식', size: '날개폭 65~75cm', region: '유럽',
-    tier: 2, stats: [760, 90, 68, 112],
+    tier: 2, stats: [963, 114, 86, 142],
     skill: { n: '고속 강습', c: 60, t: 'multi', v: 1.2, d: '두 번 연속 급강하해 날카롭게 베어냅니다.' },
     model: { a: 'arthropod', f: 'meganeura', c: ['#4f8fa8', '#2a5568', '#a5d7e6', '#11242c'], s: 1.0 },
     desc: '석탄기의 높은 산소 농도 덕분에 날개폭 70cm까지 자란 거대 잠자리입니다. 오늘날의 잠자리처럼 공중에서 곤충을 낚아채 사냥했습니다.',
@@ -88,7 +88,7 @@ window.CREATURES = [
   {
     id: 'arthropleura', ko: '아르트로플레우라', en: 'Arthropleura armata',
     era: 'paleozoic', period: '석탄기', diet: '초식', size: '몸길이 2.5m', region: '유럽·북아메리카',
-    tier: 3, stats: [980, 92, 110, 58],
+    tier: 3, stats: [1170, 110, 131, 69],
     skill: { n: '마디 압쇄', c: 70, t: 'burst', v: 1.75, d: '거대한 몸을 말아 상대를 압박합니다.' },
     model: { a: 'arthropod', f: 'arthropleura', c: ['#8a6a4a', '#543d28', '#c8a67c', '#2a1e13'], s: 1.1 },
     desc: '지금까지 알려진 육상 무척추동물 가운데 가장 큰 종으로, 몸길이가 2.5m에 달했습니다. 30개가 넘는 마디와 단단한 갑각을 가졌습니다.',
@@ -96,15 +96,15 @@ window.CREATURES = [
   {
     id: 'edaphosaurus', ko: '에다포사우루스', en: 'Edaphosaurus pogonias',
     era: 'paleozoic', period: '석탄기~페름기', diet: '초식', size: '몸길이 3.5m', region: '북아메리카·유럽',
-    tier: 2, stats: [900, 74, 102, 60],
-    skill: { n: '돛의 온기', c: 55, t: 'heal', v: 0.28, d: '돛으로 체온을 끌어올려 체력을 회복합니다.' },
+    tier: 2, stats: [1272, 105, 144, 85],
+    skill: { n: '돛의 온기', c: 60, t: 'heal', v: 0.14, d: '돛으로 체온을 끌어올려 체력을 회복합니다.' },
     model: { a: 'synapsid', f: 'sail', c: ['#7c8f5e', '#48563a', '#c3cf9e', '#2b3324'], s: 1.0 },
     desc: '등의 큰 돛은 체온 조절에 쓰였을 것으로 보이는 초식 단궁류입니다. 돛을 받치는 가시에는 작은 돌기들이 줄지어 나 있습니다.',
   },
   {
     id: 'dimetrodon', ko: '디메트로돈', en: 'Dimetrodon limbatus',
     era: 'paleozoic', period: '페름기', diet: '육식', size: '몸길이 3.5~4.6m', region: '북아메리카·유럽',
-    tier: 3, stats: [960, 112, 94, 74],
+    tier: 3, stats: [1269, 148, 124, 98],
     skill: { n: '돛 과열', c: 60, t: 'buff', v: 0.45, d: '돛에 피를 몰아 3턴 동안 공격력을 45% 높입니다.' },
     model: { a: 'synapsid', f: 'sail', c: ['#a05a3f', '#653424', '#dba07f', '#2e1810'], s: 1.05 },
     desc: '공룡이 아니라 포유류의 먼 친척인 단궁류로, 페름기의 최상위 포식자였습니다. 등 돛은 체온을 빠르게 올리는 태양열 판 역할을 했습니다.',
@@ -112,7 +112,7 @@ window.CREATURES = [
   {
     id: 'lystrosaurus', ko: '리스트로사우루스', en: 'Lystrosaurus murrayi',
     era: 'paleozoic', period: '페름기~삼첩기', diet: '초식', size: '몸길이 1~2.5m', region: '남극·아프리카·아시아',
-    tier: 1, stats: [720, 70, 90, 66],
+    tier: 1, stats: [1005, 98, 126, 92],
     skill: { n: '부리 박치기', c: 55, t: 'stun', v: 0.95, d: '단단한 부리로 들이받아 상대를 멈춰 세웁니다.' },
     model: { a: 'quadruped', f: 'beak', c: ['#9a8b6a', '#5f5439', '#d0c3a0', '#332c1d'], s: 0.95 },
     desc: '페름기 대멸종을 살아남아 삼첩기 초 육지 생물의 95%를 차지했던 작은 초식동물입니다. 남극을 포함한 여러 대륙에서 화석이 발견되어 대륙 이동설의 증거가 되었습니다.',
@@ -120,7 +120,7 @@ window.CREATURES = [
   {
     id: 'helicoprion', ko: '헬리코프리온', en: 'Helicoprion bessonowi',
     era: 'paleozoic', period: '페름기', diet: '육식', size: '몸길이 7m 이상', region: '전 세계',
-    tier: 4, stats: [1120, 128, 104, 78],
+    tier: 4, stats: [987, 113, 92, 69],
     skill: { n: '나선 톱니', c: 70, t: 'bleed', v: 1.7, d: '나선 이빨로 깊게 베어 3턴 출혈을 남깁니다.' },
     model: { a: 'shark', f: 'helicoprion', c: ['#5f7385', '#33424f', '#a9bac7', '#18222a'], s: 1.05 },
     desc: '아래턱에 톱니바퀴 모양으로 감긴 이빨 나선을 가진 상어입니다. 이 나선은 새 이빨이 계속 자라며 밀려나며 만들어졌습니다.',
@@ -128,7 +128,7 @@ window.CREATURES = [
   {
     id: 'inostrancevia', ko: '이노스트란케비아', en: 'Inostrancevia alexandri',
     era: 'paleozoic', period: '페름기', diet: '육식', size: '몸길이 3.5m', region: '러시아',
-    tier: 3, stats: [980, 118, 92, 80],
+    tier: 3, stats: [990, 119, 93, 81],
     skill: { n: '송곳니 급습', c: 65, t: 'pierce', v: 1.6, d: '긴 송곳니로 방어를 뚫고 깊숙이 물어뜯습니다.' },
     model: { a: 'theropod', f: 'gorgon', c: ['#8a6a52', '#523a2b', '#c9a88b', '#2a1b13'], s: 0.95 },
     desc: '페름기 말의 대표적인 고르고놉스류로, 송곳니가 12cm까지 자랐습니다. 포유류에 가까운 파충류로 당시 최상위 포식자였습니다.',
@@ -138,7 +138,7 @@ window.CREATURES = [
   {
     id: 'trex', ko: '티라노사우루스', en: 'Tyrannosaurus rex',
     era: 'mesozoic', period: '백악기 후기', diet: '육식', size: '몸길이 12m · 8t', region: '북아메리카',
-    tier: 4, stats: [1240, 140, 108, 84],
+    tier: 4, stats: [1025, 116, 89, 69],
     skill: { n: '왕의 포효', c: 75, t: 'stun', v: 1.5, d: '포효로 움츠러들게 하고 1.5배 피해를 준 뒤 다음 턴을 봉쇄합니다.' },
     model: { a: 'theropod', f: 'rex', c: ['#7a5f42', '#493828', '#bfa57f', '#2a1f16'], s: 1.15 },
     desc: '지구 역사상 가장 강력한 육식 동물 중 하나로, 이빨 하나가 바나나만 했습니다. 냄새를 맡는 능력과 시야가 뛰어났고 시속 20~30km로 달렸습니다.',
@@ -146,7 +146,7 @@ window.CREATURES = [
   {
     id: 'triceratops', ko: '트리케라톱스', en: 'Triceratops horridus',
     era: 'mesozoic', period: '백악기 후기', diet: '초식', size: '몸길이 9m · 9t', region: '북아메리카',
-    tier: 4, stats: [1280, 120, 132, 66],
+    tier: 4, stats: [1199, 112, 124, 62],
     skill: { n: '삼각 돌격', c: 70, t: 'burst', v: 1.95, d: '세 뿔을 앞세워 전력으로 들이받습니다.' },
     model: { a: 'quadruped', f: 'frill', c: ['#8f7a5a', '#584834', '#cfbc98', '#2f261a'], s: 1.12 },
     desc: '얼굴 앞의 두 뿔과 코뿔, 거대한 프릴로 무장한 백악기의 대표 초식공룡입니다. 티라노사우루스와 같은 시대를 살며 서로 싸운 흔적이 화석에 남아 있습니다.',
@@ -154,7 +154,7 @@ window.CREATURES = [
   {
     id: 'velociraptor', ko: '벨로키랍토르', en: 'Velociraptor mongoliensis',
     era: 'mesozoic', period: '백악기 후기', diet: '육식', size: '몸길이 2m · 15kg', region: '몽골',
-    tier: 2, stats: [780, 96, 72, 124],
+    tier: 2, stats: [931, 115, 86, 148],
     skill: { n: '연속 낫발톱', c: 60, t: 'multi', v: 1.25, d: '낫 모양 발톱으로 두 번 빠르게 할퀴어 공격합니다.' },
     model: { a: 'theropod', f: 'raptor', c: ['#8a6f4a', '#4f3a24', '#d3b98d', '#6c4a2a'], s: 0.95 },
     desc: '영화와 달리 실제 몸길이는 2m 안팎이었고 깃털로 덮여 있었습니다. 둘째 발가락의 낫 모양 발톱으로 먹이를 고정했습니다.',
@@ -162,7 +162,7 @@ window.CREATURES = [
   {
     id: 'stegosaurus', ko: '스테고사우루스', en: 'Stegosaurus stenops',
     era: 'mesozoic', period: '쥐라기 후기', diet: '초식', size: '몸길이 9m · 5t', region: '북아메리카·유럽',
-    tier: 3, stats: [1100, 98, 118, 62],
+    tier: 3, stats: [1111, 99, 119, 63],
     skill: { n: '꼬리 가시', c: 60, t: 'bleed', v: 1.35, d: '꼬리 끝 네 개의 가시를 휘둘러 출혈을 입힙니다.' },
     model: { a: 'quadruped', f: 'plates', c: ['#7c7f5a', '#484a33', '#bcc19a', '#2b2d19'], s: 1.08 },
     desc: '등을 따라 두 줄로 늘어선 17개의 골판과 꼬리 가시가 상징인 쥐라기의 초식공룡입니다. 뇌는 작았지만 골반 부근의 신경다발로 뒷다리를 제어했습니다.',
@@ -170,7 +170,7 @@ window.CREATURES = [
   {
     id: 'brachiosaurus', ko: '브라키오사우루스', en: 'Brachiosaurus altithorax',
     era: 'mesozoic', period: '쥐라기 후기', diet: '초식', size: '몸길이 22m · 35t', region: '북아메리카',
-    tier: 4, stats: [1400, 112, 130, 56],
+    tier: 4, stats: [1311, 105, 122, 52],
     skill: { n: '하늘 다리', c: 70, t: 'burst', v: 1.85, d: '긴 목을 높이 들어 앞발로 내려찍습니다.' },
     model: { a: 'sauropod', f: 'tall', c: ['#8a9170', '#525a41', '#c6cda9', '#31361f'], s: 1.15 },
     desc: '앞다리가 뒷다리보다 길어 목이 하늘로 솟은 대형 용각류로, 어깨 높이가 6m를 넘었습니다. 코뿔소 크기의 심장으로 피를 머리까지 끌어올렸습니다.',
@@ -178,7 +178,7 @@ window.CREATURES = [
   {
     id: 'archaeopteryx', ko: '아르케옵테릭스', en: 'Archaeopteryx lithographica',
     era: 'mesozoic', period: '쥐라기 후기', diet: '육식', size: '몸길이 50cm', region: '독일',
-    tier: 2, stats: [760, 88, 74, 110],
+    tier: 2, stats: [1130, 131, 110, 150],
     skill: { n: '깃털 활공', c: 55, t: 'dodge', v: 0.5, d: '2턴 동안 회피율이 50% 올라 공격을 흘려냅니다.' },
     model: { a: 'flyer', f: 'archaeo', c: ['#9a7a52', '#5b452c', '#dcc39a', '#2f2416'], s: 0.95 },
     desc: '까마귀만 한 크기로, 깃털과 날개를 가졌지만 이빨과 발톱이 남아 있는 시조새입니다. 파충류와 조류의 특징을 함께 가진 진화의 표본입니다.',
@@ -186,7 +186,7 @@ window.CREATURES = [
   {
     id: 'pteranodon', ko: '프테라노돈', en: 'Pteranodon longiceps',
     era: 'mesozoic', period: '백악기 후기', diet: '육식', size: '날개폭 6~7m', region: '북아메리카',
-    tier: 3, stats: [940, 106, 82, 108],
+    tier: 3, stats: [967, 109, 84, 111],
     skill: { n: '창끝 급강하', c: 65, t: 'pierce', v: 1.65, d: '거대한 볏을 앞세워 방어를 무시하고 내리찍습니다.' },
     model: { a: 'flyer', f: 'pteranodon', c: ['#b0a084', '#6c614e', '#e6dcc7', '#3a3225'], s: 1.1 },
     desc: '날개폭 7m의 익룡으로, 머리 뒤로 뻗은 볏이 상징입니다. 공룡이 아니라 하늘을 나는 파충류였고, 몸은 가볍게 비어 있었습니다.',
@@ -194,7 +194,7 @@ window.CREATURES = [
   {
     id: 'mosasaurus', ko: '모사사우루스', en: 'Mosasaurus hoffmannii',
     era: 'mesozoic', period: '백악기 후기', diet: '육식', size: '몸길이 17m', region: '전 세계',
-    tier: 4, stats: [1220, 132, 110, 86],
+    tier: 4, stats: [1098, 119, 99, 77],
     skill: { n: '심해 압쇄', c: 75, t: 'burst', v: 2.05, d: '두 번 접히는 턱으로 거대한 한 방을 물어뜯습니다.' },
     model: { a: 'marine', f: 'mosasaur', c: ['#4f7a86', '#2b4750', '#95c0cc', '#14262c'], s: 1.15 },
     desc: '백악기 바다의 최상위 포식자로, 도마뱀과 뱀에 가까운 친척입니다. 턱을 크게 벌렸다 닫으며 먹이를 통째로 삼켰습니다.',
@@ -202,7 +202,7 @@ window.CREATURES = [
   {
     id: 'ichthyosaurus', ko: '이크티오사우루스', en: 'Ichthyosaurus communis',
     era: 'mesozoic', period: '쥐라기 전기', diet: '육식', size: '몸길이 3m', region: '유럽',
-    tier: 2, stats: [820, 94, 78, 112],
+    tier: 2, stats: [964, 110, 92, 132],
     skill: { n: '유선 돌진', c: 60, t: 'multi', v: 1.25, d: '물살을 가르며 두 번 연속 몸통으로 들이받습니다.' },
     model: { a: 'marine', f: 'ichthyosaur', c: ['#5b8a92', '#33565c', '#a5cdd2', '#172a2d'], s: 1.0 },
     desc: '돌고래처럼 유선형 몸과 큰 눈을 가진 해양 파충류로, 몸속에서 새끼를 낳았습니다. 화석으로 위 내용물과 먹은 생선 뼈가 함께 발견되기도 합니다.',
@@ -210,7 +210,7 @@ window.CREATURES = [
   {
     id: 'plesiosaurus', ko: '플레시오사우루스', en: 'Plesiosaurus dolichodeirus',
     era: 'mesozoic', period: '쥐라기 전기', diet: '육식', size: '몸길이 3.5m', region: '유럽',
-    tier: 3, stats: [980, 100, 98, 84],
+    tier: 3, stats: [1062, 108, 106, 91],
     skill: { n: '긴 목 사냥', c: 60, t: 'drain', v: 1.45, d: '긴 목으로 달려들어 피해를 주고 체력을 회복합니다.' },
     model: { a: 'marine', f: 'plesiosaur', c: ['#6d8f7c', '#3c574a', '#b2d0bd', '#1e2f26'], s: 1.02 },
     desc: '긴 목과 네 개의 지느러미발로 바다를 헤엄친 해양 파충류입니다. 목을 뻗어 물고기나 오징어를 잡아챘습니다.',
@@ -218,7 +218,7 @@ window.CREATURES = [
   {
     id: 'dilophosaurus', ko: '딜로포사우루스', en: 'Dilophosaurus wetherilli',
     era: 'mesozoic', period: '쥐라기 전기', diet: '육식', size: '몸길이 6~7m', region: '북아메리카',
-    tier: 2, stats: [860, 100, 80, 96],
+    tier: 2, stats: [995, 116, 93, 111],
     skill: { n: '쌍관 돌진', c: 60, t: 'multi', v: 1.3, d: '머리의 두 볏을 앞세워 두 번 연속 돌진합니다.' },
     model: { a: 'theropod', f: 'crest', c: ['#8d7a56', '#514228', '#c8b38d', '#2f2614'], s: 1.0 },
     desc: '머리 위에 두 개의 반달 모양 볏을 가진 쥐라기 육식공룡입니다. 영화에 나오는 목주름과 독 뿜기는 실제 화석 근거가 없는 창작입니다.',
@@ -226,7 +226,7 @@ window.CREATURES = [
   {
     id: 'ankylosaurus', ko: '안킬로사우루스', en: 'Ankylosaurus magniventris',
     era: 'mesozoic', period: '백악기 후기', diet: '초식', size: '몸길이 8m · 6t', region: '북아메리카',
-    tier: 4, stats: [1320, 110, 138, 52],
+    tier: 4, stats: [1164, 97, 122, 46],
     skill: { n: '곤봉 꼬리', c: 65, t: 'stun', v: 1.35, d: '꼬리 끝 곤봉으로 내려쳐 상대를 기절시킵니다.' },
     model: { a: 'quadruped', f: 'club', c: ['#7a7058', '#4a4231', '#bdb298', '#282317'], s: 1.1 },
     desc: '몸 전체를 뼈로 된 골편 갑옷으로 감싼 초식공룡으로, 꼬리 끝에는 곤봉이 달려 있었습니다. 티라노사우루스조차 뒤집기 어려웠을 것으로 보입니다.',
@@ -234,7 +234,7 @@ window.CREATURES = [
   {
     id: 'parasaurolophus', ko: '파라사우롤로푸스', en: 'Parasaurolophus walkeri',
     era: 'mesozoic', period: '백악기 후기', diet: '초식', size: '몸길이 10m', region: '북아메리카',
-    tier: 3, stats: [1020, 96, 104, 82],
+    tier: 3, stats: [1086, 102, 111, 87],
     skill: { n: '저음 공명', c: 60, t: 'stun', v: 1.0, d: '볏 안에서 울린 저음을 쏘아 상대를 얼어붙게 합니다.' },
     model: { a: 'theropod', f: 'hadro', c: ['#8f8a5f', '#565236', '#c9c49c', '#2e2c1b'], s: 1.08 },
     desc: '머리 뒤로 길게 뻗은 관 모양 볏을 가진 오리주둥이 공룡입니다. 볏은 코와 연결되어 있어 낮고 긴 소리를 내 무리에 신호를 보냈습니다.',
@@ -242,7 +242,7 @@ window.CREATURES = [
   {
     id: 'spinosaurus', ko: '스피노사우루스', en: 'Spinosaurus aegyptiacus',
     era: 'mesozoic', period: '백악기 전기', diet: '육식', size: '몸길이 14~15m', region: '북아프리카',
-    tier: 4, stats: [1200, 136, 100, 78],
+    tier: 4, stats: [1080, 122, 90, 70],
     skill: { n: '돛 그물', c: 70, t: 'drain', v: 1.7, d: '돛으로 물살을 몰아 피해를 주고 체력을 흡수합니다.' },
     model: { a: 'theropod', f: 'sail', c: ['#7f6a5a', '#48392e', '#c2ab96', '#2a1e17'], s: 1.12 },
     desc: '지금까지 알려진 가장 긴 육식공룡으로, 악어 같은 주둥이와 등 돛을 가졌습니다. 물속에서 물고기를 사냥했던 반수생 생활을 했습니다.',
@@ -250,7 +250,7 @@ window.CREATURES = [
   {
     id: 'diplodocus', ko: '디플로도쿠스', en: 'Diplodocus carnegii',
     era: 'mesozoic', period: '쥐라기 후기', diet: '초식', size: '몸길이 27m', region: '북아메리카',
-    tier: 3, stats: [1180, 102, 112, 60],
+    tier: 3, stats: [1257, 109, 119, 64],
     skill: { n: '채찍 꼬리', c: 60, t: 'burst', v: 1.7, d: '초음속으로 휘둘러지는 꼬리채찍을 내리칩니다.' },
     model: { a: 'sauropod', f: 'whip', c: ['#8b8468', '#4f4a38', '#c9c3a4', '#2c291c'], s: 1.12 },
     desc: '목과 꼬리가 매우 길어 몸길이 27m에 이른 용각류입니다. 꼬리 끝은 채찍처럼 휘둘러 소리를 내거나 포식자를 위협했습니다.',
@@ -260,7 +260,7 @@ window.CREATURES = [
   {
     id: 'smilodon', ko: '스밀로돈', en: 'Smilodon fatalis',
     era: 'cenozoic', period: '플라이스토세', diet: '육식', size: '몸길이 2m · 300kg', region: '아메리카',
-    tier: 4, stats: [1100, 134, 96, 100],
+    tier: 4, stats: [949, 116, 83, 86],
     skill: { n: '검치 물기', c: 70, t: 'bleed', v: 1.6, d: '30cm 검치로 깊게 물어 3턴 출혈을 일으킵니다.' },
     model: { a: 'quadruped', f: 'saber', c: ['#b08a5e', '#6c4e30', '#e2c39a', '#3a2816'], s: 1.02 },
     desc: '검치호랑이로 불리는 대형 고양잇과 동물로, 송곳니가 30cm에 달했습니다. 사자보다 몸집이 크고 근육이 두꺼워 큰 먹이를 제압했습니다.',
@@ -268,7 +268,7 @@ window.CREATURES = [
   {
     id: 'mammoth', ko: '털매머드', en: 'Mammuthus primigenius',
     era: 'cenozoic', period: '플라이스토세', diet: '초식', size: '어깨높이 3.7m · 7t', region: '유라시아·북아메리카',
-    tier: 4, stats: [1380, 122, 128, 50],
+    tier: 4, stats: [1292, 114, 120, 47],
     skill: { n: '상아 밀치기', c: 70, t: 'burst', v: 1.9, d: '4m의 상아로 상대를 밀어냅니다.' },
     model: { a: 'quadruped', f: 'trunk', c: ['#7d5a42', '#4a3222', '#b78f70', '#2a1a10'], s: 1.16 },
     desc: '빙하기의 추위를 견디도록 두꺼운 털과 지방층을 갖춘 코끼리 친척입니다. 마지막 개체는 약 4000년 전 시베리아의 섬에서 사라졌습니다.',
@@ -276,7 +276,7 @@ window.CREATURES = [
   {
     id: 'megatherium', ko: '메가테리움', en: 'Megatherium americanum',
     era: 'cenozoic', period: '플라이스토세', diet: '초식', size: '몸길이 6m · 4t', region: '남아메리카',
-    tier: 3, stats: [1180, 108, 106, 62],
+    tier: 3, stats: [1148, 105, 103, 60],
     skill: { n: '거인의 포옹', c: 65, t: 'stun', v: 1.25, d: '앞발로 붙잡아 움직임을 봉쇄합니다.' },
     model: { a: 'quadruped', f: 'sloth', c: ['#8a7358', '#4f3f2e', '#c0a98c', '#2c2418'], s: 1.05 },
     desc: '코끼리만 한 크기의 땅늘보로, 뒷다리로 일어서면 3.5m가 넘었습니다. 긴 발톱으로 나뭇가지를 끌어당겨 잎을 먹었습니다.',
@@ -284,7 +284,7 @@ window.CREATURES = [
   {
     id: 'titanoboa', ko: '티타노보아', en: 'Titanoboa cerrejonensis',
     era: 'cenozoic', period: '팔레오세', diet: '육식', size: '몸길이 13m · 1t', region: '남아메리카',
-    tier: 4, stats: [1220, 118, 104, 74],
+    tier: 4, stats: [1165, 113, 99, 71],
     skill: { n: '거대 조이기', c: 65, t: 'drain', v: 1.5, d: '몸으로 감아 피해를 주며 체력을 흡수합니다.' },
     model: { a: 'serpent', f: 'boa', c: ['#6f7a4a', '#3f4829', '#b4bf8e', '#222814'], s: 1.12 },
     desc: '지금까지 알려진 가장 큰 뱀으로 몸길이가 13m, 몸무게가 1t에 달했습니다. 지금보다 훨씬 따뜻했던 팔레오세 열대우림의 강에서 살았습니다.',
@@ -292,7 +292,7 @@ window.CREATURES = [
   {
     id: 'andrewsarchus', ko: '앤드류사르쿠스', en: 'Andrewsarchus mongoliensis',
     era: 'cenozoic', period: '에오세', diet: '육식', size: '몸길이 4m · 1t', region: '몽골',
-    tier: 3, stats: [1060, 120, 92, 88],
+    tier: 3, stats: [1012, 115, 88, 84],
     skill: { n: '거대 턱', c: 65, t: 'pierce', v: 1.6, d: '83cm의 두개골에서 나오는 압력으로 방어를 뚫습니다.' },
     model: { a: 'quadruped', f: 'wolf', c: ['#8a6a4c', '#4f3a28', '#c4a381', '#2a1d13'], s: 1.04 },
     desc: '두개골 하나만으로 알려진 육식 포유류로, 머리 길이가 83cm에 달했습니다. 긴 주둥이와 튼튼한 이로 단단한 껍질도 부숴 먹었을 것으로 보입니다.',
@@ -300,7 +300,7 @@ window.CREATURES = [
   {
     id: 'basilosaurus', ko: '바실로사우루스', en: 'Basilosaurus cetoides',
     era: 'cenozoic', period: '에오세', diet: '육식', size: '몸길이 17~20m', region: '아프리카·북아메리카',
-    tier: 4, stats: [1260, 124, 112, 72],
+    tier: 4, stats: [1203, 118, 107, 69],
     skill: { n: '원시 고래 돌진', c: 70, t: 'burst', v: 1.9, d: '뱀처럼 긴 몸으로 물속을 가로질러 들이받습니다.' },
     model: { a: 'marine', f: 'basilosaurus', c: ['#5a7f8a', '#304a52', '#a1c4cc', '#182a2f'], s: 1.14 },
     desc: '이름은 파충류를 뜻하지만 실제로는 초기 고래입니다. 몸길이가 20m에 달했고 뒷다리는 매우 작게 퇴화한 채 남아 있었습니다.',
@@ -308,7 +308,7 @@ window.CREATURES = [
   {
     id: 'livyatan', ko: '리비아탄', en: 'Livyatan melvillei',
     era: 'cenozoic', period: '마이오세', diet: '육식', size: '몸길이 13~17m', region: '남아메리카·유럽',
-    tier: 4, stats: [1300, 138, 104, 78],
+    tier: 4, stats: [1146, 122, 92, 69],
     skill: { n: '향유고래의 이빨', c: 75, t: 'burst', v: 2.1, d: '36cm의 이빨로 거대한 먹이를 물어뜯습니다.' },
     model: { a: 'marine', f: 'livyatan', c: ['#56646c', '#2d363b', '#9aa9b2', '#161d21'], s: 1.15 },
     desc: '이빨 길이가 36cm에 달하는 거대 향유고래로, 당시 최대 포식자 중 하나였습니다. 이름은 소설 모비 딕의 고래에서 따왔습니다.',
@@ -316,7 +316,7 @@ window.CREATURES = [
   {
     id: 'arsinoitherium', ko: '아르시노이테리움', en: 'Arsinoitherium zitteli',
     era: 'cenozoic', period: '에오세', diet: '초식', size: '몸길이 3m', region: '이집트',
-    tier: 2, stats: [900, 84, 108, 64],
+    tier: 2, stats: [1107, 103, 133, 79],
     skill: { n: '쌍뿔 방벽', c: 55, t: 'guard', v: 0.75, d: '코 위의 두 뿔로 2턴 동안 피해를 크게 줄입니다.' },
     model: { a: 'quadruped', f: 'horn2', c: ['#8a7c62', '#4f4635', '#c4b89c', '#2c271b'], s: 1.0 },
     desc: '코 위에 나란히 솟은 두 개의 뿔이 특징인 초식 포유류로, 코뿔소·말·하마의 친척입니다. 뿔은 뼈로 되어 있고 속이 비어 있었습니다.',
@@ -324,7 +324,7 @@ window.CREATURES = [
   {
     id: 'paraceratherium', ko: '인드리코테리움', en: 'Paraceratherium transouralicum',
     era: 'cenozoic', period: '올리고세', diet: '초식', size: '어깨 5m · 17t', region: '유라시아',
-    tier: 4, stats: [1420, 118, 132, 52],
+    tier: 4, stats: [1304, 108, 121, 48],
     skill: { n: '거인 발구르기', c: 70, t: 'burst', v: 1.85, d: '대지를 울리며 앞발을 내려찍습니다.' },
     model: { a: 'sauropod', f: 'rhino', c: ['#8b7a62', '#4f4334', '#c6b79d', '#2c251a'], s: 1.1 },
     desc: '육상 포유류 가운데 가장 큰 종으로 어깨 높이가 5m, 무게가 17t에 달했습니다. 뿔이 없는 거대한 코뿔소 친척으로 나뭇잎을 뜯어 먹었습니다.',
@@ -332,7 +332,7 @@ window.CREATURES = [
   {
     id: 'megalania', ko: '메갈라니아', en: 'Varanus priscus',
     era: 'cenozoic', period: '플라이스토세', diet: '육식', size: '몸길이 7m', region: '오스트레일리아',
-    tier: 4, stats: [1140, 130, 98, 92],
+    tier: 4, stats: [1005, 115, 86, 81],
     skill: { n: '맹독 발톱', c: 65, t: 'bleed', v: 1.5, d: '독을 머금은 발톱으로 할퀴어 출혈을 일으킵니다.' },
     model: { a: 'quadruped', f: 'lizard', c: ['#6f7a52', '#3f4a2e', '#b2bd8e', '#202613'], s: 1.08 },
     desc: '오스트레일리아에 살았던 거대한 왕도마뱀으로, 몸길이 7m에 몸무게가 1t에 가까웠습니다. 현생 모니터도마뱀처럼 강력한 독을 가졌을 가능성이 있습니다.',
@@ -340,7 +340,7 @@ window.CREATURES = [
   {
     id: 'diprotodon', ko: '디프로토돈', en: 'Diprotodon optatum',
     era: 'cenozoic', period: '플라이스토세', diet: '초식', size: '몸길이 3m · 2.8t', region: '오스트레일리아',
-    tier: 3, stats: [1180, 96, 112, 56],
+    tier: 3, stats: [1192, 97, 113, 57],
     skill: { n: '주머니곰 압박', c: 60, t: 'stun', v: 1.2, d: '몸통으로 밀어붙여 상대의 움직임을 막습니다.' },
     model: { a: 'quadruped', f: 'wombat', c: ['#9a8a70', '#5c503d', '#d0c2a8', '#312a1e'], s: 1.04 },
     desc: '지금까지 알려진 가장 큰 유대류로, 코뿔소만 한 몸집을 가졌습니다. 코알라와 웜뱃의 친척이며 오스트레일리아의 초원을 누볐습니다.',
@@ -348,7 +348,7 @@ window.CREATURES = [
   {
     id: 'doedicurus', ko: '도에디쿠루스', en: 'Doedicurus clavicaudatus',
     era: 'cenozoic', period: '플라이스토세', diet: '초식', size: '몸길이 4m · 2t', region: '남아메리카',
-    tier: 3, stats: [1140, 104, 124, 54],
+    tier: 3, stats: [1214, 111, 132, 58],
     skill: { n: '철퇴 꼬리', c: 65, t: 'burst', v: 1.75, d: '가시가 박힌 꼬리 철퇴를 휘두릅니다.' },
     model: { a: 'quadruped', f: 'armadillo', c: ['#8a7a60', '#4d4232', '#c2b49a', '#2a2418'], s: 1.05 },
     desc: '등껍질 끝에 가시가 달린 곤봉 꼬리를 가진 거대 아르마딜로입니다. 꼬리를 휘둘러 같은 종끼리 싸웠던 흔적이 화석에서 발견되었습니다.',
@@ -356,7 +356,7 @@ window.CREATURES = [
   {
     id: 'megalodon', ko: '메갈로돈', en: 'Otodus megalodon',
     era: 'cenozoic', period: '마이오세~플라이오세', diet: '육식', size: '몸길이 15~18m · 50t', region: '전 세계',
-    tier: 4, stats: [1320, 142, 112, 86],
+    tier: 4, stats: [1042, 112, 88, 68],
     skill: { n: '심연의 턱', c: 80, t: 'pierce', v: 2.15, d: '손바닥만 한 이빨로 방어를 뚫고 물어뜯습니다.' },
     model: { a: 'shark', f: 'megalodon', c: ['#5c6f7c', '#2f3d47', '#a7b7c2', '#131b21'], s: 1.2 },
     desc: '지구 역사상 가장 큰 상어로, 이빨 길이가 18cm에 달했습니다. 뼈가 아닌 연골로 이루어져 턱과 이빨만 화석으로 남았습니다.',
@@ -364,7 +364,7 @@ window.CREATURES = [
   {
     id: 'australopithecus', ko: '오스트랄로피테쿠스', en: 'Australopithecus afarensis',
     era: 'cenozoic', period: '플라이오세', diet: '잡식', size: '키 1.2~1.4m', region: '동아프리카',
-    tier: 2, stats: [820, 88, 80, 98],
+    tier: 2, stats: [1235, 132, 120, 148],
     skill: { n: '도구의 발견', c: 55, t: 'buff', v: 0.4, d: '돌 도구를 쥐고 3턴 동안 공격력이 40% 오릅니다.' },
     model: { a: 'hominid', f: 'australo', c: ['#8a6a4c', '#4f3826', '#c9a985', '#2b1d12'], s: 0.95 },
     desc: '직립보행을 한 최초의 인류 조상 중 하나로, 키가 1.2~1.4m였습니다. 탄자니아 라에톨리에서 360만 년 전 발자국 화석이 발견되었습니다.',
@@ -372,7 +372,7 @@ window.CREATURES = [
   {
     id: 'neanderthal', ko: '네안데르탈인', en: 'Homo neanderthalensis',
     era: 'cenozoic', period: '플라이스토세', diet: '잡식', size: '키 1.6m · 70kg', region: '유라시아',
-    tier: 3, stats: [1040, 110, 100, 88],
+    tier: 3, stats: [1031, 109, 99, 87],
     skill: { n: '불의 창', c: 65, t: 'pierce', v: 1.55, d: '불에 다린 창으로 방어를 뚫고 찌릅니다.' },
     model: { a: 'hominid', f: 'neander', c: ['#9a7856', '#5a412c', '#d6b693', '#33241a'], s: 1.02 },
     desc: '빙하기 유라시아에 살았던 인류로, 두꺼운 뼈와 근육질 몸을 가졌습니다. 불을 피우고 돌도구를 만들었으며 현생 인류와 DNA를 공유합니다.',

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: paleo-clash-api
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: ALLOWED_ORIGIN
+        value: https://26024-cmyk.github.io
+      - key: NODE_VERSION
+        value: 20.11.1

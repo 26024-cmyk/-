@@ -18,15 +18,17 @@
         </div>
       </div>
       <div class="wallet">
-        <div class="wallet__dna"><span>DNA</span><strong id="dna">0</strong></div>
-        <button type="button" class="primary small" id="dig-btn">화석 발굴 · 45</button>
+        <div class="wallet__coin"><span>🪙 코인</span><strong id="coins">0</strong></div>
+        <button type="button" class="primary small" id="pack-btn">카드팩 · 100</button>
       </div>
     </header>
 
     <nav class="tabs" aria-label="화면 전환">
       <button type="button" class="tab is-active" data-tab="codex">도감</button>
       <button type="button" class="tab" data-tab="battle">전투</button>
+      <button type="button" class="tab" data-tab="shop">상점</button>
       <button type="button" class="tab" data-tab="fusion">융합</button>
+      <button type="button" class="tab" data-tab="ranks">순위</button>
     </nav>
 
     <main>
@@ -47,7 +49,7 @@
       <section class="screen" id="screen-battle">
         <div id="battle-setup">
           <h2 class="section-title">어떤 고생물이 싸울까요?</h2>
-          <p class="hint">보유한 생물만 전투에 나설 수 있습니다. 상대는 내 레벨에 맞춰 나타납니다.</p>
+          <p class="hint">보유한 생물만 전투에 나설 수 있습니다. 상대는 내 생물과 비슷한 전력으로 매칭됩니다.</p>
           <div class="pick-row" id="pick-row"></div>
           <button type="button" class="primary" id="battle-start">탐험 시작</button>
         </div>
@@ -96,10 +98,45 @@
         </div>
       </section>
 
+      <section class="screen" id="screen-shop">
+        <h2 class="section-title">상점 · 카드팩</h2>
+        <p class="hint">전투에서 이기면 코인을 얻습니다. 카드팩 한 장에는 생물 3종이 들어 있고, 이미 보유한 생물이 나오면 중복 +1이 되어 융합 재료가 됩니다.</p>
+        <div class="shop">
+          <div class="shop__pack">
+            <div class="pack-art" aria-hidden="true">🃏</div>
+            <h3>고생물 카드팩</h3>
+            <p>3장 구성 · ★1 34% · ★2 30% · ★3 23% · ★4 13%</p>
+            <button type="button" class="primary" id="pack-buy">카드팩 열기 · 100 코인</button>
+          </div>
+          <div class="shop__stats">
+            <div><span>보유 코인</span><strong id="shop-coins">0</strong></div>
+            <div><span>연 카드팩</span><strong id="shop-opened">0</strong></div>
+            <div><span>도감 등록</span><strong id="shop-owned">0 / 45</strong></div>
+          </div>
+        </div>
+      </section>
+
       <section class="screen" id="screen-fusion">
         <h2 class="section-title">융합</h2>
-        <p class="hint">같은 생물 2마리를 합치면 1성 강화됩니다. 능력치가 28%씩 오르고 최대 ★5까지 성장합니다.</p>
+        <p class="hint">같은 생물 2마리를 합치면 1성 강화됩니다. 능력치가 28%씩 오르고 최대 ★5까지 성장합니다. 모든 생물이 융합 대상입니다.</p>
+        <p class="meta" id="fusion-summary"></p>
         <div id="fusion-list"></div>
+      </section>
+
+      <section class="screen" id="screen-ranks">
+        <h2 class="section-title">실시간 순위</h2>
+        <p class="hint">전투 승리로 순위 점수를 쌓아 다른 플레이어와 겨룹니다. 닉네임을 정하고 기록을 올려 보세요. 서버가 연결되면 순위가 실시간으로 갱신됩니다.</p>
+        <div class="rank-panel">
+          <div class="rank-form">
+            <label for="rank-name">닉네임</label>
+            <input id="rank-name" maxlength="12" placeholder="고생물학자" autocomplete="off">
+            <button type="button" class="primary small" id="rank-submit">기록 올리기</button>
+          </div>
+          <div class="rank-me" id="rank-me">0승 0패 · 0점</div>
+          <div class="rank-status" id="rank-status"></div>
+          <div class="rank-list" id="rank-list"></div>
+          <button type="button" class="ghost small" id="rank-refresh">새로고침</button>
+        </div>
       </section>
     </main>
 
@@ -117,10 +154,28 @@
     </div>
   </div>
 
+  <div class="modal" id="pack-modal" hidden>
+    <div class="modal__card pack-modal" role="dialog" aria-modal="true" aria-label="카드팩 개봉">
+      <button type="button" class="modal__close" id="pack-close" aria-label="닫기">✕</button>
+      <div class="pack-head">
+        <h2>카드팩 개봉</h2>
+        <p>3장의 카드를 확인하세요</p>
+      </div>
+      <div class="pack-cards" id="pack-cards"></div>
+      <div class="pack-actions">
+        <button type="button" class="primary small" id="pack-again">한 번 더 · 100 코인</button>
+        <button type="button" class="ghost small" id="pack-ok">확인</button>
+      </div>
+    </div>
+  </div>
+
   <div class="toast" id="toast" hidden></div>
 
+  <script src="js/config.js"></script>
   <script src="js/data.js"></script>
+  <script src="js/combat.js"></script>
   <script src="js/models.js"></script>
+  <script src="js/online.js"></script>
   <script src="js/game.js"></script>
 </body>
 </html>

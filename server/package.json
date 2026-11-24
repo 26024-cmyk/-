@@ -1,0 +1,13 @@
+{
+  "name": "paleo-clash-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "팔레오 클래시 실시간 순위 API",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

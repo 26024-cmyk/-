@@ -161,8 +161,9 @@
       }
     }
     if (f === 'hadro') {
-      limb(ctx, [[headX - 6, headY - 10], [headX - 44, headY - 26], [headX - 62, headY - 6]], 9, accent);
-      limb(ctx, [[headX - 12, headY - 6], [headX - 48, headY - 14], [headX - 64, headY + 2]], 7, light);
+      const pts = curvePts(headX - 4, headY - 2, headX - 26, headY - 16, headX - 66, headY - 36, 7);
+      tailShape(ctx, pts, [11, 10, 9, 7.5, 6, 4.5, 3, 1.8], accent);
+      tailShape(ctx, pts.map((p) => [p[0], p[1] + 2]), [5, 4.5, 4, 3.4, 2.6, 2, 1.4, 0.8], light);
     }
 
     leg(-2, main, 1);
@@ -217,8 +218,8 @@
     }
     eye(ctx, headX + hrx * 0.42, headY - hry * 0.3, 3.4, accent);
     if (f === 'crest') {
-      ell(ctx, headX + 2, headY - hry - 6, 9, 7, accent, -0.35);
-      ell(ctx, headX - 12, headY - hry - 2, 7, 5, accent, -0.35);
+      poly(ctx, [[headX + 2, headY - 8], [headX + 10, headY - 30], [headX + 19, headY - 26], [headX + 18, headY - 4]], accent);
+      poly(ctx, [[headX - 14, headY - 8], [headX - 6, headY - 32], [headX + 3, headY - 28], [headX + 2, headY - 6]], accent);
     }
     if (f === 'raptor') {
       // feathered arms
@@ -300,39 +301,43 @@
 
     // features
     if (f === 'frill') {
-      const fx = hx + 2;
-      const fy = headY - 4;
+      const fx = hx - 8;
+      const fy = headY - 8;
       ctx.beginPath();
-      ctx.ellipse(fx, fy, 34, 30, 0, 0, TAU);
+      ctx.ellipse(fx, fy, 31, 29, 0, 0, TAU);
       ctx.fillStyle = accent;
       ctx.fill();
       ctx.beginPath();
-      ctx.ellipse(fx + 6, fy + 2, 24, 21, 0, 0, TAU);
+      ctx.ellipse(fx + 2, fy + 2, 21, 19, 0, 0, TAU);
       ctx.fillStyle = main;
       ctx.fill();
-      // horns
-      poly(ctx, [[hx + 12, headY - 12], [hx + 34, headY - 34], [hx + 36, headY - 4]], '#f3ead2');
-      poly(ctx, [[hx + 4, headY - 14], [hx + 12, headY - 40], [hx + 22, headY - 16]], '#f3ead2');
-      poly(ctx, [[hx + 26, headY + 6], [hx + 40, headY - 4], [hx + 38, headY + 8]], '#f3ead2');
+      ell(ctx, hx + 6, headY + 4, 21, 17, main);
+      ell(ctx, hx + 16, headY + 7, 11, 8, light);
+      poly(ctx, [[hx + 18, headY - 4], [hx + 42, headY - 18], [hx + 36, headY + 4]], '#f3ead2');
+      poly(ctx, [[hx + 6, headY - 8], [hx + 20, headY - 32], [hx + 27, headY - 6]], '#f3ead2');
+      poly(ctx, [[hx + 30, headY + 10], [hx + 44, headY + 4], [hx + 34, headY + 14]], '#f3ead2');
     }
     if (f === 'plates') {
       const baseX = -rx * 0.7;
       for (let i = 0; i < 8; i++) {
         const px = baseX + i * (rx * 1.5) / 8;
-        const ph = 14 + Math.sin((i / 7) * Math.PI) * 20;
-        poly(ctx, [[px - 9, y - ry * 0.85], [px, y - ry * 0.85 - ph], [px + 9, y - ry * 0.85]], i % 2 ? dark : accent);
+        const ph = 18 + Math.sin((i / 7) * Math.PI) * 26;
+        poly(ctx, [[px - 11, y - ry * 0.85], [px, y - ry * 0.85 - ph], [px + 11, y - ry * 0.85]], i % 2 ? dark : accent);
       }
-      poly(ctx, [[-rx - 44, y + 4], [-rx - 58, y - 22], [-rx - 30, y - 2]], '#f3ead2');
-      poly(ctx, [[-rx - 38, y + 10], [-rx - 54, y - 6], [-rx - 26, y + 4]], '#f3ead2');
+      poly(ctx, [[-rx - 46, y + 2], [-rx - 62, y - 26], [-rx - 28, y - 4]], '#f3ead2');
+      poly(ctx, [[-rx - 40, y + 10], [-rx - 58, y - 8], [-rx - 24, y + 4]], '#f3ead2');
     }
     if (f === 'club') {
       for (let i = 0; i < 5; i++) {
         const px = -rx * 0.55 + i * rx * 0.28;
         poly(ctx, [[px, y - ry * 0.9], [px + 8, y - ry * 0.9 - 10], [px + 16, y - ry * 0.9]], dark);
       }
-      ell(ctx, -rx - 54, y + 8, 18, 14, dark);
-      circ(ctx, -rx - 60, y + 2, 4, accent);
-      circ(ctx, -rx - 50, y + 16, 4, accent);
+      limb(ctx, [[-rx - 20, y + 4], [-rx - 44, y + 8]], 13, main);
+      ell(ctx, -rx - 50, y + 8, 20, 16, dark);
+      for (let i = 0; i < 5; i++) {
+        const a = -0.9 + i * 0.45;
+        circ(ctx, -rx - 50 + Math.cos(a) * 17, y + 8 + Math.sin(a) * 13, 4, accent);
+      }
     }
     if (f === 'armadillo') {
       ctx.beginPath();
@@ -353,20 +358,33 @@
       }
     }
     if (f === 'trunk') {
+      ell(ctx, hx - 14, headY + 2, 13, 17, dark);
+      ell(ctx, hx + 2, headY - 14, 17, 12, main);
       lensTrunk(ctx, hx, headY, main, light, mo);
-      poly(ctx, [[hx + 16, headY + 12], [hx + 48, headY + 6], [hx + 44, headY + 16], [hx + 16, headY + 20]], '#f3ead2');
-      poly(ctx, [[hx + 4, headY + 16], [hx + 30, headY + 20], [hx + 18, headY + 28]], '#f3ead2');
+      limb(ctx, curvePts(hx + 10, headY + 16, hx + 44, headY + 22, hx + 62, headY - 4, 6), 7, '#f3ead2');
+      limb(ctx, curvePts(hx + 2, headY + 18, hx + 34, headY + 26, hx + 52, headY - 2, 6), 6, '#efe6cf');
       ellipseFur(ctx, rx, ry, y, main, light);
     }
     if (f === 'sloth') {
-      limb(ctx, [[hx + 6, headY + 12], [hx + 22, headY + 26], [hx + 30, headY + 22]], 10, dark);
+      const fx = rx * 0.5;
       for (let i = 0; i < 3; i++) {
-        limb(ctx, [[hx + 26 + i * 4, headY + 22], [hx + 36 + i * 3, headY + 34]], 4, '#efe6cf');
+        limb(ctx, [[fx + 3 + i * 4, -14], [fx + 9 + i * 4, -8], [fx + 13 + i * 4, -2]], 3.2, '#efe6cf');
       }
+      ctx.save();
+      ctx.globalAlpha = 0.45;
+      ctx.strokeStyle = light;
+      ctx.lineWidth = 2;
+      for (let i = 0; i < 6; i++) {
+        ctx.beginPath();
+        ctx.moveTo(-rx * 0.5 + i * 14, y - ry * 0.6);
+        ctx.lineTo(-rx * 0.5 + i * 14 - 4, y + ry * 0.45);
+        ctx.stroke();
+      }
+      ctx.restore();
     }
     if (f === 'horn2') {
-      poly(ctx, [[hx + 2, headY - 14], [hx + 8, headY - 40], [hx + 16, headY - 12]], '#f3ead2');
-      poly(ctx, [[hx + 16, headY - 14], [hx + 22, headY - 40], [hx + 28, headY - 10]], '#f3ead2');
+      poly(ctx, [[hx - 4, headY + 4], [hx + 1, headY - 40], [hx + 11, headY - 35], [hx + 11, headY + 4]], '#f3ead2');
+      poly(ctx, [[hx + 16, headY + 4], [hx + 20, headY - 34], [hx + 30, headY - 27], [hx + 30, headY + 4]], '#f3ead2');
     }
     if (f === 'lizard') {
       ctx.strokeStyle = accent;
@@ -384,13 +402,14 @@
       for (let i = 0; i < 6; i++) circ(ctx, -rx + i * 12, y - ry - 2, 2.6, accent);
     }
     if (f === 'amphibian') {
-      ell(ctx, hx + 2, headY + 4, 26, 13, main);
-      circ(ctx, hx - 4, headY - 6, 3, accent);
-      circ(ctx, hx + 8, headY - 8, 2.4, accent);
+      poly(ctx, [[hx + 2, headY + 3], [hx + 26, headY + 5], [hx + 21, headY + 13], [hx + 1, headY + 11]], main);
+      circ(ctx, hx - 6, headY - 7, 2.6, accent);
+      circ(ctx, hx + 6, headY - 9, 2.2, accent);
     }
     if (f === 'beak') {
-      poly(ctx, [[hx + 20, headY - 6], [hx + 40, headY + 2], [hx + 20, headY + 10]], '#d9cba4');
-      poly(ctx, [[hx + 24, headY + 6], [hx + 30, headY + 22], [hx + 32, headY + 6]], '#efe6cf');
+      ell(ctx, hx + 24, headY + 2, 12, 9, '#d9cba4');
+      poly(ctx, [[hx + 30, headY - 2], [hx + 42, headY + 2], [hx + 30, headY + 6]], '#c9b98f');
+      poly(ctx, [[hx + 21, headY + 8], [hx + 25, headY + 22], [hx + 29, headY + 7]], '#efe6cf');
     }
     if (f === 'wombat') {
       ell(ctx, hx - 10, headY + 4, 6, 5, dark);
@@ -471,8 +490,10 @@
     }
     ell(ctx, headX, headY, f === 'rhino' ? 23 : 16, f === 'rhino' ? 19 : 12, main);
     if (f === 'rhino') {
-      ell(ctx, headX + 10, headY + 6, 16, 12, main);
-      poly(ctx, [[headX - 6, headY - 12], [headX + 4, headY - 22], [headX + 10, headY - 10]], main);
+      ell(ctx, headX + 10, headY + 6, 18, 13, main);
+      ell(ctx, headX + 22, headY + 8, 10, 8, main);
+      poly(ctx, [[headX - 6, headY - 12], [headX + 4, headY - 24], [headX + 12, headY - 10]], main);
+      poly(ctx, [[headX - 14, headY - 10], [headX - 18, headY - 24], [headX - 2, headY - 14]], dark);
       ell(ctx, headX - 12, headY - 8, 6, 5, dark);
     } else {
       ell(ctx, headX + 10, headY + 2, 9, 8, main);
@@ -531,8 +552,8 @@
       const t2 = i / 10;
       const top = y - ry - sailH * (0.4 + Math.sin(t2 * Math.PI) * 0.6);
       ctx.beginPath();
-      ctx.moveTo(px, y - ry * 0.7);
-      ctx.lineTo(px, top + 6);
+      ctx.moveTo(px, top + sailH * 0.42);
+      ctx.lineTo(px, top + 5);
       ctx.stroke();
     }
 
@@ -580,10 +601,11 @@
 
     // arms
     limb(ctx, [[-16, -70 + sway], [-26, -52], [-22 + sway, -34]], 9, main);
-    limb(ctx, [[16, -70 - sway], [26, -54], [24 - sway, -36]], 9, main);
+    limb(ctx, [[16, -70 - sway], [27, -56], [30 - sway, -38]], 9, main);
     if (m.f === 'neander') {
-      limb(ctx, [[24, -36], [46, -46], [62, -60]], 4, '#8a6a45');
-      poly(ctx, [[62, -62], [72, -68], [64, -56]], '#cfd3d6');
+      limb(ctx, [[30, -40], [52, -54], [74, -72]], 4, '#8a6a45');
+      poly(ctx, [[76, -76], [86, -86], [76, -68]], '#cfd3d6');
+      limb(ctx, [[52, -54], [55, -44]], 3, dark);
     } else {
       circ(ctx, 24, -34, 6, '#a08a6a');
     }
@@ -664,9 +686,9 @@
       // serpentine body: extra segments + tiny hind flippers
       poly(ctx, [[-10, y + ry * 0.6], [18, y + ry + 18], [34, y + ry + 2]], dark);
       for (let i = 0; i < 5; i++) circ(ctx, -rx * 0.6 + i * 16, y - ry * 0.4, 2, accent);
-      ell(ctx, rx * 0.72, y - 2, 26, 15, main);
-      poly(ctx, [[rx * 0.7, y + 2], [rx * 0.7 + 44, y + 6], [rx * 0.7 + 40, y + 12], [rx * 0.7, y + 12]], main);
-      eye(ctx, rx * 0.74 + 6, y - 6, 2.8, accent);
+      ell(ctx, rx * 0.7, y - 4, 32, 20, main);
+      poly(ctx, [[rx * 0.7, y + 2], [rx * 0.7 + 52, y + 4], [rx * 0.7 + 46, y + 14], [rx * 0.7, y + 14]], main);
+      eye(ctx, rx * 0.72 + 6, y - 10, 3, accent);
       return;
     }
 
@@ -801,7 +823,8 @@
     eye(ctx, hx + 4, y - 8, 2.6, accent);
 
     if (f === 'pteranodon') {
-      poly(ctx, [[hx - 2, y - 10], [hx - 26, y - 34], [hx - 6, y - 6]], accent);
+      poly(ctx, [[hx + 4, y - 14], [hx - 34, y - 30], [hx - 46, y - 19], [hx - 12, y - 2]], accent);
+      poly(ctx, [[hx + 2, y - 10], [hx - 22, y - 19], [hx - 27, y - 12], [hx - 8, y - 2]], light);
       ctx.strokeStyle = dark;
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -869,17 +892,24 @@
         const wob = Math.sin(t * 6 + i * 0.6 + (m.ph || 0)) * 4;
         poly(ctx, [[px, y - 4], [px - 4, y + 14 + wob], [px + 8, y + 6]], i % 2 ? dark : light);
       }
-      ell(ctx, 0, y, 48, 16, main);
-      ell(ctx, 0, y - 5, 40, 9, light);
-      // frontal claws
-      limb(ctx, [[38, y - 6], [62, y - 2], [70, y + 10]], 5, main);
-      limb(ctx, [[38, y + 2], [60, y + 10], [66, y + 20]], 5, main);
-      for (let i = 0; i < 4; i++) {
-        poly(ctx, [[66 + i * 2, y + 8 + i * 2], [74 + i * 2, y + 4 + i * 4], [70 + i * 2, y + 12 + i * 2]], dark);
+      ell(ctx, 0, y, 48, 20, main);
+      ell(ctx, 0, y - 7, 40, 9, light);
+      ctx.strokeStyle = dark;
+      ctx.lineWidth = 2;
+      for (let i = 0; i < 6; i++) {
+        ctx.beginPath();
+        ctx.arc(-36 + i * 14, y, 9, Math.PI * 0.35, Math.PI * 1.65);
+        ctx.stroke();
       }
-      ell(ctx, 46, y - 4, 12, 10, main);
-      eye(ctx, 46, y - 8, 4, accent);
-      eye(ctx, 52, y - 3, 3, accent);
+      // frontal claws
+      limb(ctx, [[38, y - 6], [64, y - 4], [74, y + 8]], 6, main);
+      limb(ctx, [[38, y + 4], [62, y + 12], [70, y + 22]], 6, main);
+      for (let i = 0; i < 4; i++) {
+        poly(ctx, [[70 + i * 2, y + 6 + i * 2], [80 + i * 2, y + 2 + i * 4], [74 + i * 2, y + 12 + i * 2]], dark);
+      }
+      ell(ctx, 46, y - 6, 15, 12, main);
+      eye(ctx, 47, y - 10, 5, accent);
+      eye(ctx, 54, y - 4, 4, accent);
       return;
     }
 
@@ -887,8 +917,15 @@
       for (let i = 0; i < 5; i++) {
         limb(ctx, [[-30 + i * 12, y + 8], [-34 + i * 12 + Math.sin(t * 4 + i) * 4, y + 20]], 2, dark);
       }
-      ell(ctx, -6, y, 34, 12, main);
-      ell(ctx, -6, y - 3, 28, 6, light);
+      ell(ctx, -6, y, 36, 15, main);
+      ell(ctx, -6, y - 4, 29, 7, light);
+      ctx.strokeStyle = dark;
+      ctx.lineWidth = 1.6;
+      for (let i = 0; i < 5; i++) {
+        ctx.beginPath();
+        ctx.arc(-24 + i * 9, y, 7, Math.PI * 0.4, Math.PI * 1.6);
+        ctx.stroke();
+      }
       // proboscis
       const pts = curvePts(24, y - 4, 56, y - 18 + Math.sin(t * 2) * 5, 64, y + 2, 6);
       limb(ctx, pts, 5, light);
@@ -942,17 +979,27 @@
     if (f === 'meganeura') {
       const flap = Math.sin(t * 9 + (m.ph || 0));
       for (let i = 0; i < 2; i++) {
-        poly(ctx, [[-4, y - 6], [-40, y - 30 - flap * 12], [-58, y - 6 - flap * 6], [-16, y]], i ? light : main);
-        poly(ctx, [[2, y - 2], [34, y - 26 - flap * 10], [54, y - 4], [12, y + 6]], i ? light : main);
+        const off = i * 6;
+        poly(ctx, [[2, y - 8], [-30 - off, y - 46 - flap * 10], [-74 - off, y - 36 - flap * 6], [-38 - off, y - 8]], light);
+        poly(ctx, [[4, y - 2], [-24 - off, y - 30 - flap * 8], [-60 - off, y - 22 - flap * 5], [-30 - off, y + 2]], main);
       }
-      ell(ctx, 0, y, 8, 8, dark);
-      ell(ctx, 8, y - 2, 10, 9, main);
-      circ(ctx, 14, y - 6, 3.2, accent);
-      // long abdomen
-      const tp = curvePts(-6, y + 2, -40, y + 6, -78, y + 14 + Math.sin(t * 2) * 3, 6);
-      tailShape(ctx, tp, [6, 5.4, 4.6, 3.8, 3, 2.2, 1.4], main);
-      for (let i = 0; i < 4; i++) {
-        limb(ctx, [[-2 - i * 8, y + 4], [-6 - i * 8, y + 18]], 1.6, dark);
+      const tp = curvePts(-8, y, -44, y + 4, -84, y + 8 + Math.sin(t * 2) * 3, 6);
+      tailShape(ctx, tp, [7, 6, 5, 4, 3, 2, 1.2], main);
+      ctx.strokeStyle = dark;
+      ctx.lineWidth = 1.4;
+      for (let i = 1; i < 5; i++) {
+        const p = tp[i + 1];
+        ctx.beginPath();
+        ctx.moveTo(p[0], p[1] - 5);
+        ctx.lineTo(p[0], p[1] + 5);
+        ctx.stroke();
+      }
+      ell(ctx, 0, y - 2, 9, 9, dark);
+      ell(ctx, 10, y - 6, 11, 10, main);
+      circ(ctx, 16, y - 12, 5, dark);
+      eye(ctx, 17, y - 12, 3.2, accent);
+      for (let i = 0; i < 3; i++) {
+        limb(ctx, [[2 - i * 7, y + 4], [-2 - i * 7, y + 20]], 1.6, dark);
       }
       return;
     }
@@ -1103,7 +1150,8 @@
     if (o.locked) {
       ctx.globalAlpha = 0.28;
     }
-    const base = Math.min(w / 260, h / 150);
+    const fit = { sauropod: 0.82, marine: 0.95, shark: 0.92, serpent: 0.95, hominid: 1.05, arthropod: 1.05 };
+    const base = Math.min(w / 280, h / 160) * (fit[spec.a] || 1);
     draw(ctx, spec, {
       x: w * 0.5,
       y: h * 0.9,
