@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>팔레오 클래시 — 고생물 배틀 도감</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦖</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__mark">🦖</span>
+        <div>
+          <h1>팔레오 클래시</h1>
+          <p>고생대 · 중생대 · 신생대 배틀 도감</p>
+        </div>
+      </div>
+      <div class="wallet">
+        <div class="wallet__dna"><span>DNA</span><strong id="dna">0</strong></div>
+        <button type="button" class="primary small" id="dig-btn">화석 발굴 · 45</button>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="화면 전환">
+      <button type="button" class="tab is-active" data-tab="codex">도감</button>
+      <button type="button" class="tab" data-tab="battle">전투</button>
+      <button type="button" class="tab" data-tab="fusion">융합</button>
+    </nav>
+
+    <main>
+      <section class="screen is-active" id="screen-codex">
+        <div class="toolbar">
+          <div class="filters" id="era-filters">
+            <button type="button" class="chip is-active" data-era="all">전체</button>
+            <button type="button" class="chip" data-era="paleozoic">고생대</button>
+            <button type="button" class="chip" data-era="mesozoic">중생대</button>
+            <button type="button" class="chip" data-era="cenozoic">신생대</button>
+          </div>
+          <input type="search" id="search" placeholder="이름으로 찾기" autocomplete="off">
+        </div>
+        <p class="meta" id="codex-meta"></p>
+        <div class="grid" id="codex-grid"></div>
+      </section>
+
+      <section class="screen" id="screen-battle">
+        <div id="battle-setup">
+          <h2 class="section-title">어떤 고생물이 싸울까요?</h2>
+          <p class="hint">보유한 생물만 전투에 나설 수 있습니다. 상대는 내 레벨에 맞춰 나타납니다.</p>
+          <div class="pick-row" id="pick-row"></div>
+          <button type="button" class="primary" id="battle-start">탐험 시작</button>
+        </div>
+
+        <div id="arena" hidden>
+          <div class="arena__hud">
+            <div class="fighter">
+              <div class="fighter__line">
+                <strong id="hud-player-name">—</strong>
+                <span id="hud-player-lv">Lv.1</span>
+              </div>
+              <div class="bar hp"><i id="hud-player-hp"></i></div>
+              <div class="bar en"><i id="hud-player-en"></i></div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="fighter fighter--right">
+              <div class="fighter__line">
+                <span id="hud-enemy-lv">Lv.1</span>
+                <strong id="hud-enemy-name">—</strong>
+              </div>
+              <div class="bar hp"><i id="hud-enemy-hp"></i></div>
+              <div class="bar en"><i id="hud-enemy-en"></i></div>
+            </div>
+          </div>
+
+          <div class="arena__stage">
+            <canvas id="battle-canvas" width="1000" height="420"></canvas>
+            <div class="result" id="result" hidden>
+              <h3 id="result-title">승리!</h3>
+              <p id="result-body"></p>
+              <div class="result__buttons">
+                <button type="button" class="primary small" id="result-again">다시 싸우기</button>
+                <button type="button" class="ghost small" id="result-leave">도감으로</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="arena__actions" id="actions">
+            <button type="button" data-act="attack">공격 <span>+에너지</span></button>
+            <button type="button" data-act="guard">방어 <span>피해 감소</span></button>
+            <button type="button" data-act="skill" id="skill-btn">필살기</button>
+            <button type="button" class="ghost" data-act="flee">후퇴</button>
+          </div>
+
+          <div class="log" id="log" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-fusion">
+        <h2 class="section-title">융합</h2>
+        <p class="hint">같은 생물 2마리를 합치면 1성 강화됩니다. 능력치가 28%씩 오르고 최대 ★5까지 성장합니다.</p>
+        <div id="fusion-list"></div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>45종 · 고생대 15 · 중생대 15 · 신생대 15</span>
+      <span>자료: 나무위키 · 위키백과 · 로열 온타리오 박물관 · 브리태니커</span>
+    </footer>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal__card" role="dialog" aria-modal="true">
+      <button type="button" class="modal__close" id="modal-close" aria-label="닫기">✕</button>
+      <canvas id="detail-canvas"></canvas>
+      <div class="modal__body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/models.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
