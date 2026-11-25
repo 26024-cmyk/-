@@ -409,6 +409,7 @@
       if (checkEnd()) return;
     }
     if (st.stunned) {
+      battle.active = null;
       addLog(`${f.name}은(는) 기절해 움직일 수 없습니다.`);
       updateHud();
       window.setTimeout(nextTurn, 700);
@@ -423,32 +424,10 @@
     }
   }
 
-  function hit(a, d, mult, pierce) {
-    const r = window.Combat.hit(a, d, mult, pierce, Math.random);
-    if (r.evaded) {
-      addLog(`${d.name}이(가) 공격을 회피했습니다!`, 'good');
-      addFloater(d, 'MISS', '#9fd7b4');
-      return 0;
-    }
-    d.pose = { kind: 'hit', start: now() };
-    addFloater(d, r.crit ? r.dmg + '!' : r.dmg, r.crit ? '#ffd166' : undefined);
-    addLog(`${a.name}의 공격 — <b>${r.dmg}</b> 피해${r.crit ? ' <b>(치명타)</b>' : ''}`, 'bad');
-    return r.dmg;
-  }
-
-  function heal(f, amount) {
-    const healed = window.Combat.heal(f, amount);
-    if (healed > 0) {
-      addFloater(f, '+' + healed, '#9fd7b4');
-      addLog(`${f.name}이(가) ${healed} 회복했습니다.`, 'good');
-    }
-    return healed;
-  }
-
   function applySkill(a, d) {
     const s = a.c.skill;
     addLog(`<b>${a.name}</b>의 고유 스킬 · ${s.n}!`);
-    const r = window.Combat.skill(a, d, Math.random);
+    const r = window.Combat.applyAction(a, d, 'skill', Math.random);
     if (r.dmg > 0) {
       d.pose = { kind: 'hit', start: now() };
       addFloater(d, r.dmg);
@@ -471,35 +450,40 @@
   }
 
   function perform(a, d, kind, done) {
-    if (kind === 'attack') {
-      a.energy = Math.min(100, a.energy + 22);
-      a.pose = { kind: 'attack', start: now() };
-      updateHud();
-      window.setTimeout(() => {
-        hit(a, d, 1);
-        updateHud();
-      }, 170);
-      window.setTimeout(() => done(), 640);
+    if (kind === 'skill' && a.energy < a.c.skill.c) {
+      addLog('에너지가 부족합니다.');
+      done();
       return;
     }
+    a.pose = { kind: kind === 'guard' ? 'guard' : kind === 'skill' ? 'skill' : 'attack', start: now() };
+    updateHud();
+
     if (kind === 'guard') {
-      a.energy = Math.min(100, a.energy + 30);
-      a.status.shield = 2;
-      a.pose = { kind: 'guard', start: now() };
+      // 에너지·방어막 모두 공용 전투 코드가 처리합니다.
+      window.Combat.applyAction(a, d, 'guard', Math.random);
       addLog(`${a.name}이(가) 방어 태세를 취했습니다. 피해 65% 감소 (2턴)`, 'good');
       updateHud();
       window.setTimeout(() => done(), 520);
       return;
     }
-    // skill
-    if (a.energy < a.c.skill.c) {
-      addLog('에너지가 부족합니다.');
-      done();
+
+    if (kind === 'attack') {
+      window.setTimeout(() => {
+        const r = window.Combat.applyAction(a, d, 'attack', Math.random);
+        if (r.evaded) {
+          addLog(`${d.name}이(가) 공격을 회피했습니다!`, 'good');
+          addFloater(d, 'MISS', '#9fd7b4');
+        } else {
+          d.pose = { kind: 'hit', start: now() };
+          addFloater(d, r.crit ? r.dmg + '!' : r.dmg, r.crit ? '#ffd166' : undefined);
+          addLog(`${a.name}의 공격 — <b>${r.dmg}</b> 피해${r.crit ? ' <b>(치명타)</b>' : ''}`, 'bad');
+        }
+        updateHud();
+      }, 170);
+      window.setTimeout(() => done(), 640);
       return;
     }
-    a.energy -= a.c.skill.c;
-    a.pose = { kind: 'skill', start: now() };
-    updateHud();
+
     window.setTimeout(() => {
       applySkill(a, d);
       updateHud();

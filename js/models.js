@@ -301,21 +301,43 @@
 
     // features
     if (f === 'frill') {
-      const fx = hx - 8;
+      const fx = hx - 12;
       const fy = headY - 8;
+      // 프릴: 밝은 테두리 + 가장자리 돌기 + 안쪽 판 (껍질처럼 보이지 않게)
       ctx.beginPath();
-      ctx.ellipse(fx, fy, 31, 29, 0, 0, TAU);
-      ctx.fillStyle = accent;
+      ctx.ellipse(fx, fy, 27, 33, -0.12, 0, TAU);
+      ctx.fillStyle = light;
       ctx.fill();
+      for (let i = 0; i < 8; i++) {
+        const a = -2.35 + i * 0.39;
+        circ(ctx, fx + Math.cos(a) * 26, fy + Math.sin(a) * 32, 3.4, light);
+      }
       ctx.beginPath();
-      ctx.ellipse(fx + 2, fy + 2, 21, 19, 0, 0, TAU);
+      ctx.ellipse(fx + 2, fy + 1, 20, 25, -0.12, 0, TAU);
       ctx.fillStyle = main;
       ctx.fill();
+      ctx.save();
+      ctx.globalAlpha = 0.5;
+      ctx.beginPath();
+      ctx.ellipse(fx + 5, fy + 3, 13, 17, -0.12, 0, TAU);
+      ctx.fillStyle = dark;
+      ctx.fill();
+      ctx.restore();
+      circ(ctx, fx - 9, fy - 12, 3, accent);
+      circ(ctx, fx + 7, fy - 18, 2.6, accent);
+      // 머리와 부리
       ell(ctx, hx + 6, headY + 4, 21, 17, main);
-      ell(ctx, hx + 16, headY + 7, 11, 8, light);
-      poly(ctx, [[hx + 18, headY - 4], [hx + 42, headY - 18], [hx + 36, headY + 4]], '#f3ead2');
-      poly(ctx, [[hx + 6, headY - 8], [hx + 20, headY - 32], [hx + 27, headY - 6]], '#f3ead2');
-      poly(ctx, [[hx + 30, headY + 10], [hx + 44, headY + 4], [hx + 34, headY + 14]], '#f3ead2');
+      ell(ctx, hx + 15, headY + 8, 11, 8, light);
+      poly(ctx, [[hx + 20, headY + 5], [hx + 33, headY + 7], [hx + 26, headY + 18]], '#d9c9a2');
+      // 눈썹뿔 2개: 앞쪽이 길고 뒤쪽은 짧게, 서로 벌어지게
+      poly(ctx, [[hx - 8, headY - 5], [hx - 2, headY - 32], [hx + 8, headY - 4]], '#e3d6b8');
+      poly(ctx, [[hx + 1, headY - 7], [hx + 10, headY - 45], [hx + 19, headY - 5]], '#f3ead2');
+      poly(ctx, [[hx + 5, headY - 8], [hx + 10, headY - 40], [hx + 14, headY - 6]], '#fff8e6');
+      // 코뿔: 부리 바로 위, 앞쪽으로 기울게
+      poly(ctx, [[hx + 20, headY + 2], [hx + 27, headY - 22], [hx + 33, headY + 2]], '#efe6cf');
+      poly(ctx, [[hx + 24, headY + 2], [hx + 27, headY - 18], [hx + 29, headY + 2]], '#d9c9a2');
+      // 볼 돌기
+      poly(ctx, [[hx - 4, headY + 10], [hx - 13, headY + 16], [hx + 2, headY + 14]], accent);
     }
     if (f === 'plates') {
       const baseX = -rx * 0.7;
@@ -383,8 +405,24 @@
       ctx.restore();
     }
     if (f === 'horn2') {
-      poly(ctx, [[hx - 4, headY + 4], [hx + 1, headY - 40], [hx + 11, headY - 35], [hx + 11, headY + 4]], '#f3ead2');
-      poly(ctx, [[hx + 16, headY + 4], [hx + 20, headY - 34], [hx + 30, headY - 27], [hx + 30, headY + 4]], '#f3ead2');
+      // 뿔 밑동: 두개골에 붙은 어두운 테
+      ctx.beginPath();
+      ctx.ellipse(hx + 9, headY - 1, 9, 4, 0, 0, TAU);
+      ctx.fillStyle = dark;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.ellipse(hx + 25, headY - 1, 8, 3.6, 0, 0, TAU);
+      ctx.fillStyle = dark;
+      ctx.fill();
+      // 코 위의 두 뿔: 넓은 밑동에서 앞쪽으로 살짝 기울며 뾰족하게
+      poly(ctx, [[hx + 1, headY], [hx + 7, headY - 21], [hx + 12, headY - 25], [hx + 17, headY]], '#efe6cf');
+      poly(ctx, [[hx + 3, headY], [hx + 9, headY - 18], [hx + 11, headY - 20], [hx + 12, headY]], '#c9b794');
+      circ(ctx, hx + 10, headY - 23, 3.6, '#f6efdc');
+      poly(ctx, [[hx + 17, headY], [hx + 23, headY - 19], [hx + 29, headY - 23], [hx + 32, headY - 1]], '#efe6cf');
+      poly(ctx, [[hx + 19, headY], [hx + 25, headY - 16], [hx + 27, headY - 18], [hx + 27, headY - 1]], '#c9b794');
+      circ(ctx, hx + 27, headY - 21, 3.2, '#f6efdc');
+      // 코끝
+      ell(ctx, hx + 29, headY + 6, 9, 7, dark);
     }
     if (f === 'lizard') {
       ctx.strokeStyle = accent;
@@ -814,23 +852,30 @@
     ctx.beginPath();
     ctx.moveTo(-2, y + 2);
     ctx.lineTo(-48, y - 20 + flap * 34);
+    ctx.moveTo(-2, y + 2);
+    ctx.lineTo(-40, y + 4 + flap * 10);
+    ctx.lineTo(-74, y + 12 + flap * 16);
     ctx.stroke();
 
     // head
     const hx = 30;
-    ell(ctx, hx, y - 4, 14, 11, main);
-    poly(ctx, [[hx + 6, y - 8], [hx + 44, y - 2], [hx + 40, y + 4], [hx + 6, y + 2]], accent);
+    ell(ctx, hx, y - 4, 15, 12, main);
     eye(ctx, hx + 4, y - 8, 2.6, accent);
 
     if (f === 'pteranodon') {
-      poly(ctx, [[hx + 4, y - 14], [hx - 34, y - 30], [hx - 46, y - 19], [hx - 12, y - 2]], accent);
-      poly(ctx, [[hx + 2, y - 10], [hx - 22, y - 19], [hx - 27, y - 12], [hx - 8, y - 2]], light);
+      // 볏: 머리 뒤쪽으로 좁게 뻗어 날개처럼 보이지 않게
+      poly(ctx, [[hx + 5, y - 11], [hx - 26, y - 27], [hx - 42, y - 21], [hx - 30, y - 10], [hx - 8, y - 1]], accent);
+      poly(ctx, [[hx + 3, y - 9], [hx - 18, y - 17], [hx - 26, y - 13], [hx - 8, y - 1]], light);
+      // 부리: 밑동은 두껍고 끝으로 갈수록 뾰족하게
+      poly(ctx, [[hx + 8, y - 8], [hx + 42, y - 4], [hx + 64, y - 1], [hx + 60, y + 3], [hx + 38, y + 3], [hx + 8, y + 2]], '#e9dfc7');
+      poly(ctx, [[hx + 8, y + 2], [hx + 54, y + 3], [hx + 48, y + 8], [hx + 8, y + 6]], accent);
       ctx.strokeStyle = dark;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 1.2;
       ctx.beginPath();
-      ctx.moveTo(hx + 44, y - 2);
-      ctx.lineTo(hx + 48, y - 8);
+      ctx.moveTo(hx + 10, y + 1);
+      ctx.lineTo(hx + 58, y + 1.8);
       ctx.stroke();
+      circ(ctx, hx + 18, y - 2, 1.5, dark);
     } else {
       // feathered tail
       for (let i = 0; i < 5; i++) {
